@@ -16,5 +16,5 @@ npm start
 ## REST API (HTTP Port: 9051)
 | Route | HTTP Type | Description                                   | Usage                                                                                                                          |
 |-------|-----------|-----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| /     | GET       | Shows status of the Server.                   | Response:<br><br>```<br>{<br>  "status": "Online",<br>  "packets": {<br>    "send": 0,<br>    "received": 0<br>  }<br>}<br>``` |
-| /send | POST      | Send ArtNet commands to every Slave connected | <br>Post Body:```<br>{<br>    "channel": 1,<br>    "value": 255,<br>    "blackout": false,<br>    "fullOn": false<br>}<br>```  |
+| /     | GET       | Shows status of the Server.                   | Response:    ```  {    "status": "Online",    "packets": {      "send": 0,      "received": 0    }  }  ``` |
+| /send | POST      | Send ArtNet commands to every Slave connected |   Post Body:```  {      "channel": 1,      "value": 255,      "blackout": false,      "fullOn": false  }  ```  |
