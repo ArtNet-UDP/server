@@ -46,10 +46,10 @@ server.on('message', (msg, info) => {
     */
     let object = JSON.parse(Buffer.from(msg));
 
-    if(object.message === "artnet_broadcast") {
+    if(object.command === "artnet_broadcast") {
         server.send(Buffer.from('{ "connected": true, "message": "Connected to Artnet!" }'), info.port, info.address);
         slaves.push(new Slave(info.address, info.port, object.type));
-    } else if(object.message === "send") {
+    } else if(object.command === "send") {
         for(let i = 0; i < slaves.length; i++) {
             Console.info('Debug (Received): [Ch] ' + object.data.channel + ' [Val] ' + object.data.value, 'udp4');
             server.send(Buffer.from(JSON.stringify(object.data)), slaves[i].port, slaves[i].ipAdress);
