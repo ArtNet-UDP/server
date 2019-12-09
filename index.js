@@ -26,7 +26,8 @@ server.on('error', (err) => {
     server.close();
 });
 
-server.on('close', () => {
+server.on('close', (err) => {
+    Console.Error(`Server Error: \n${err.stack}`, 'udp4');
     status.status = "Offline";
     Console.info('Server closed.', 'udp4');
 });
