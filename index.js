@@ -26,8 +26,7 @@ server.on('error', (err) => {
     server.close();
 });
 
-server.on('close', (err) => {
-    Console.Error(`Server Error: \n${err.stack}`, 'udp4');
+server.on('close', () => {
     status.status = "Offline";
     Console.info('Server closed.', 'udp4');
 });
@@ -83,4 +82,4 @@ app.post('/send', function (req, res) {
 app.listen(9051);
 Console.info('Service listening on 9051', 'rest')
 
-server.bind(9050, "192.168.178.11");
+server.bind(9050, "localhost");
